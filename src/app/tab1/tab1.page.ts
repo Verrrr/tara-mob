@@ -7,7 +7,9 @@ import {
   CameraPosition,
   MarkerOptions,
   Marker,
-  Environment
+  Environment,
+  GroundOverlay,
+  ILatLng
 } from '@ionic-native/google-maps/ngx';
 import { Platform, ModalController } from '@ionic/angular';
 import { BusinessTitlePage } from './components/business-title/business-title.page';
@@ -19,10 +21,20 @@ import { BusinessTitlePage } from './components/business-title/business-title.pa
 })
 export class Tab1Page implements OnInit{
   map: GoogleMap;
+  businessMarkers: any[];
+  defaultCamera = {
+    target: {
+      lat: 14.8372047,
+      lng: 120.2674568
+    },
+    zoom: 15,
+    tilt: 30
+  };
 
   async ngOnInit(){
     await this.platform.ready();
     await this.loadMap();
+    this.loadBusiness();
   }
 
   async presentModal() {
@@ -36,61 +48,353 @@ export class Tab1Page implements OnInit{
   constructor(
     private platform: Platform,
     private modalController: ModalController
-    ) { }
+    ) { 
+        this.businessMarkers = new Array();
+    }
 
   loadMap() {
 
     let mapOptions: GoogleMapOptions = {
-      camera: {
-         target: {
-           lat: 14.8386,
-           lng: 120.2842
-         },
-         zoom: 15,
-         tilt: 30
-       }
+      camera: this.defaultCamera,
+       styles: [
+        {
+            "featureType": "administrative",
+            "elementType": "geometry.stroke",
+            "stylers": [
+                {
+                    "color": "#004060"
+                }
+            ]
+        },
+        {
+            "featureType": "administrative.province",
+            "elementType": "labels.text.fill",
+            "stylers": [
+                {
+                    "color": "#00557f"
+                }
+            ]
+        },
+        {
+            "featureType": "administrative.province",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+                {
+                    "color": "#d3eaf6"
+                }
+            ]
+        },
+        {
+            "featureType": "administrative.locality",
+            "elementType": "labels.text.fill",
+            "stylers": [
+                {
+                    "color": "#000000"
+                }
+            ]
+        },
+        {
+            "featureType": "administrative.locality",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+                {
+                    "color": "#ffffff"
+                }
+            ]
+        },
+        {
+            "featureType": "administrative.neighborhood",
+            "elementType": "labels.text.fill",
+            "stylers": [
+                {
+                    "color": "#006699"
+                }
+            ]
+        },
+        {
+            "featureType": "landscape.man_made",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "color": "#bfe3f5"
+                }
+            ]
+        },
+        {
+            "featureType": "landscape.natural",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "color": "#a1e0e8"
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "color": "#9bd0ea"
+                }
+            ]
+        },
+        {
+            "featureType": "poi.park",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "color": "#abeab2"
+                }
+            ]
+        },
+        {
+            "featureType": "poi.school",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "color": "#9bd0ea"
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "color": "#ffb884"
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "elementType": "geometry.stroke",
+            "stylers": [
+                {
+                    "color": "#f38e43"
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway.controlled_access",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "color": "#f38e43"
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway.controlled_access",
+            "elementType": "geometry.stroke",
+            "stylers": [
+                {
+                    "color": "#ea6400"
+                }
+            ]
+        },
+        {
+            "featureType": "road.local",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "color": "#dff4ff"
+                }
+            ]
+        },
+        {
+            "featureType": "transit.line",
+            "elementType": "labels.text.fill",
+            "stylers": [
+                {
+                    "color": "#ffffff"
+                }
+            ]
+        },
+        {
+            "featureType": "transit.line",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+                {
+                    "color": "#006699"
+                }
+            ]
+        },
+        {
+            "featureType": "transit.station.airport",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "color": "#9bd0ea"
+                }
+            ]
+        },
+        {
+            "featureType": "water",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "color": "#006699"
+                }
+            ]
+        },
+        {
+            "featureType": "water",
+            "elementType": "labels.text.fill",
+            "stylers": [
+                {
+                    "color": "#ffffff"
+                }
+            ]
+        }
+    ]
+    
     };
 
     this.map = GoogleMaps.create('map_canvas', mapOptions);
 
-    let marker: Marker = this.map.addMarkerSync({
-      title: 'Ionic',
-      icon: {
-        url: 'assets/icon/zoobic.png', 
-        size: {
-          width: 35,
-          height: 40
-        }
-      },
-      snippet: 'testing',
-      animation: 'DROP',
-      
-      position: {
-        lat: 14.8386,
-        lng: 120.2842
-      }
+    this.map.addEventListener(GoogleMapsEvent.MAP_CLICK).subscribe(data=>{
+        console.log(data);
     });
 
-    let marker1: Marker = this.map.addMarkerSync({
-      title: 'Ionic',
-      icon: {
-        url: 'assets/icon/inflatable_island.png', 
-        size: {
-          width: 35,
-          height: 40
-        }
-      },
-      snippet: 'testing',
-      animation: 'DROP',
-      position: {
-        lat: 14.8486,
-        lng: 120.2842
-      }
-    });
-
-    marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-      console.log('testing');
-      this.presentModal();
-    });
   }
+
+  loadInflatable(){
+      while (!!this.businessMarkers.length) {
+          this.businessMarkers.pop().remove();
+      }
+
+      let bounds: ILatLng[] = [
+        {"lat": 14.837478, "lng": 120.267383},
+        {"lat": 14.837144, "lng": 120.268261}
+      ];
+
+      this.map.animateCamera({
+        target: bounds,
+        zoom: 19,
+        tilt: this.defaultCamera.tilt,
+        duration: 2000
+      });
+
+      this.map.addGroundOverlay({
+        'url': "../assets/maps/inflatable.png",
+        'bounds': bounds,
+        'opacity': 1,
+        bearing: -130
+      });
+
+        let hidden1: Marker = this.map.addMarkerSync({
+            icon: {
+            url: '../assets/icon/blank.png', 
+            size: {
+                width: 35,
+                height: 40
+            }
+            },
+            animation: 'DROP',
+            position: {
+            lat: 14.837286,
+            lng: 120.267638
+            }
+        });
+
+        let hidden2: Marker = this.map.addMarkerSync({
+            icon: {
+            url: '../assets/icon/blank.png', 
+            size: {
+                width: 35,
+                height: 40
+            }
+            },
+            animation: 'DROP',
+            position: {
+            lat: 14.837658,
+            lng: 120.267612
+            }
+        });
+
+        let hidden3: Marker = this.map.addMarkerSync({
+            icon: {
+            url: '../assets/icon/blank.png', 
+            size: {
+                width: 35,
+                height: 40
+            }
+            },
+            animation: 'DROP',
+            position: {
+            lat: 14.837124,
+            lng: 120.268083
+            }
+        });
+
+        let hidden4: Marker = this.map.addMarkerSync({
+            icon: {
+            url: '../assets/icon/blank.png', 
+            size: {
+                width: 35,
+                height: 40
+            }
+            },
+            animation: 'DROP',
+            position: {
+            lat: 14.837263,
+            lng: 120.267825
+            }
+        });
+
+
+    // this.map.setCameraTarget(this.defaultCamera.target);
+    // this.map.setCameraZoom(30);
+    // this.map.setCameraTilt(this.defaultCamera.tilt);
+
+  }
+
+  loadBusiness(){
+
+        this.map.setCameraTarget(this.defaultCamera.target);
+        this.map.setCameraZoom(this.defaultCamera.zoom);
+        this.map.setCameraTilt(this.defaultCamera.tilt);
+      
+        let marker: Marker = this.map.addMarkerSync({
+            title: 'Ionic',
+            icon: {
+            url: '../assets/icon/zoobic.png', 
+            size: {
+                width: 35,
+                height: 40
+            },
+            },
+            snippet: 'testing',
+            animation: 'DROP',
+            
+            position: {
+            lat: 14.8386,
+            lng: 120.2842
+            }
+        });
+  
+        let marker1: Marker = this.map.addMarkerSync({
+            title: 'Inflatable Island',
+            icon: {
+            url: '../assets/icon/inflatable_island.png', 
+            size: {
+                width: 35,
+                height: 40
+            }
+            },
+            snippet: 'biggest floating island',
+            animation: 'DROP',
+            position: {
+            lat: 14.837244,
+            lng: 120.267777
+            }
+        });
+        this.businessMarkers.push(marker);
+        this.businessMarkers.push(marker1);
+      
+        marker1.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+            this.loadInflatable();
+        });
+
+    }
 }
