@@ -283,7 +283,7 @@ export class Tab1Page implements OnInit{
       });
 
       this.map.addGroundOverlay({
-        'url': "../assets/maps/inflatable.png",
+        'url': "assets/maps/inflatable.png",
         'bounds': bounds,
         'opacity': 1,
         bearing: -130
@@ -291,7 +291,7 @@ export class Tab1Page implements OnInit{
 
         let hidden1: Marker = this.map.addMarkerSync({
             icon: {
-            url: '../assets/icon/blank.png', 
+            url: 'assets/icon/blank.png', 
             size: {
                 width: 35,
                 height: 40
@@ -306,7 +306,7 @@ export class Tab1Page implements OnInit{
 
         let hidden2: Marker = this.map.addMarkerSync({
             icon: {
-            url: '../assets/icon/blank.png', 
+            url: 'assets/icon/blank.png', 
             size: {
                 width: 35,
                 height: 40
@@ -321,7 +321,7 @@ export class Tab1Page implements OnInit{
 
         let hidden3: Marker = this.map.addMarkerSync({
             icon: {
-            url: '../assets/icon/blank.png', 
+            url: 'assets/icon/blank.png', 
             size: {
                 width: 35,
                 height: 40
@@ -336,7 +336,7 @@ export class Tab1Page implements OnInit{
 
         let hidden4: Marker = this.map.addMarkerSync({
             icon: {
-            url: '../assets/icon/blank.png', 
+            url: 'assets/icon/blank.png', 
             size: {
                 width: 35,
                 height: 40
@@ -365,7 +365,7 @@ export class Tab1Page implements OnInit{
     let marker: Marker = this.map.addMarkerSync({
         title: 'Ionic',
         icon: {
-        url: '../assets/icon/zoobic.png', 
+        url: 'assets/icon/zoobic.png', 
         size: {
             width: 35,
             height: 40
@@ -383,7 +383,7 @@ export class Tab1Page implements OnInit{
     let marker1: Marker = this.map.addMarkerSync({
         title: 'Inflatable Island',
         icon: {
-        url: '../assets/icon/inflatable_island.png', 
+        url: 'assets/icon/inflatable_island.png', 
         size: {
             width: 35,
             height: 40
