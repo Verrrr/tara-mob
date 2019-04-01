@@ -1,11 +1,11 @@
 <ion-content force-overscroll="false">
-    <gl-background-video src="assets/background-video/testing.mp4" poster="assets/background-video/testing.png"></gl-background-video>
+    <gl-background-video src="assets/background-video/bg.mp4" poster="assets/background-video/bg.PNG"></gl-background-video>
   <div class="page-centered-element">
     <div class="content">
       <img src="assets/icon/logo.png" style="width: 50%; height: 50%">
-      <h5>Gamifying Travel Experience</h5>
+      <h5 style="color: white" >Gamifying Travel Experience</h5>
       <div class="buttons-container">
-        <ion-button>Login</ion-button>
+        <ion-button (click)="gotoLogin()" >Login</ion-button>
       </div>
     </div>
   </div>

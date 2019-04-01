@@ -1,9 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Testing</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" (click)="modalController.dismiss()" ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Inflatable Island Challenges</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
+  <ion-list>
+    <ion-item>
+      <ion-label>Selfie Challenge</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+          <img src="../assets/icon/logo.png">
+      </ion-avatar>
+      <ion-label>Explore Challenge</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Facebook Challenge</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Twitter Challenge</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Food Challenge</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgForm } from '@angular/forms';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,8 @@ export class LoginPage implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private navController: NavController
   ) { }
 
   ngOnInit() {
@@ -27,9 +28,11 @@ export class LoginPage implements OnInit {
     await loading.present();
     try {
      
-      let loginResponse = await this.authService.login(credentials.value).toPromise();
-      localStorage.setItem('token', loginResponse['token']);
+      // let loginResponse = await this.authService.login(credentials.value).toPromise();
+      // localStorage.setItem('token', loginResponse['token']);
+      localStorage.setItem('user','1');
       loading.dismiss();
+      this.navController.navigateForward('/tabs/tab1');
     } catch (error) {
       credentials.resetForm();
       loading.dismiss();

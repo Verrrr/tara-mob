@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { defineCustomElements } from 'gl-ionic-background-video/dist/loader';
+import { NavController } from '@ionic/angular';
 
 defineCustomElements(window); // call the function here
 
@@ -10,9 +11,13 @@ defineCustomElements(window); // call the function here
 })
 export class LandingPage implements OnInit {
 
-  constructor() { }
+  constructor(private navController: NavController) { }
 
   ngOnInit() {
+  }
+
+  gotoLogin(){
+    this.navController.navigateForward('/login');
   }
 
 }

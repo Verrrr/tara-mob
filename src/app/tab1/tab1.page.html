@@ -1,9 +1,17 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start" *ngIf="isInflatable">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
     <ion-title>
-      Tara G!
+      {{ title }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<div id="map_canvas" style="height: 100%; width: 100%"></div>
+<div id="map_canvas" style="height: 100%; width: 100%">
+  <ion-button style="float: right" *ngIf="isInflatable" (click)="presentModal()">
+    <ion-icon slot="start" name="star"></ion-icon>
+    Challenges
+  </ion-button>
+</div>

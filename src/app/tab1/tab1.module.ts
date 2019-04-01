@@ -13,7 +13,7 @@ import { BusinessTitlePage } from './components/business-title/business-title.pa
     FormsModule,
     RouterModule.forChild([{ path: '', component: Tab1Page }])
   ],
-  declarations: [Tab1Page, BusinessTitlePage],
+  declarations: [Tab1Page],
   entryComponents: [BusinessTitlePage]
 })
 export class Tab1PageModule {}

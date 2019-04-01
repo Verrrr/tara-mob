@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import {
   GoogleMaps,
   GoogleMap,
@@ -22,6 +22,7 @@ import { BusinessTitlePage } from './components/business-title/business-title.pa
 export class Tab1Page implements OnInit{
   map: GoogleMap;
   businessMarkers: any[];
+  title: string;
   defaultCamera = {
     target: {
       lat: 14.8372047,
@@ -30,6 +31,17 @@ export class Tab1Page implements OnInit{
     zoom: 15,
     tilt: 30
   };
+  isInflatable: boolean;
+
+  constructor(
+    private platform: Platform,
+    private modalController: ModalController,
+    private changeDetectorRef: ChangeDetectorRef
+    ) { 
+      this.businessMarkers = new Array();
+      this.title = "Tara G!"
+      this.isInflatable = false;
+    }
 
   async ngOnInit(){
     await this.platform.ready();
@@ -45,12 +57,7 @@ export class Tab1Page implements OnInit{
     return await modal.present();
   }
   
-  constructor(
-    private platform: Platform,
-    private modalController: ModalController
-    ) { 
-        this.businessMarkers = new Array();
-    }
+
 
   loadMap() {
 
@@ -260,7 +267,7 @@ export class Tab1Page implements OnInit{
 
   loadInflatable(){
       while (!!this.businessMarkers.length) {
-          this.businessMarkers.pop().remove();
+        this.businessMarkers.pop().remove();
       }
 
       let bounds: ILatLng[] = [
@@ -341,60 +348,62 @@ export class Tab1Page implements OnInit{
             lng: 120.267825
             }
         });
+      
+    this.title = "Inflatable Island";
+    this.isInflatable = true;
 
-
-    // this.map.setCameraTarget(this.defaultCamera.target);
-    // this.map.setCameraZoom(30);
-    // this.map.setCameraTilt(this.defaultCamera.tilt);
-
+    this.changeDetectorRef.detectChanges();
+  
   }
 
   loadBusiness(){
 
-        this.map.setCameraTarget(this.defaultCamera.target);
-        this.map.setCameraZoom(this.defaultCamera.zoom);
-        this.map.setCameraTilt(this.defaultCamera.tilt);
-      
-        let marker: Marker = this.map.addMarkerSync({
-            title: 'Ionic',
-            icon: {
-            url: '../assets/icon/zoobic.png', 
-            size: {
-                width: 35,
-                height: 40
-            },
-            },
-            snippet: 'testing',
-            animation: 'DROP',
-            
-            position: {
-            lat: 14.8386,
-            lng: 120.2842
-            }
-        });
+    this.map.setCameraTarget(this.defaultCamera.target);
+    this.map.setCameraZoom(this.defaultCamera.zoom);
+    this.map.setCameraTilt(this.defaultCamera.tilt);
   
-        let marker1: Marker = this.map.addMarkerSync({
-            title: 'Inflatable Island',
-            icon: {
-            url: '../assets/icon/inflatable_island.png', 
-            size: {
-                width: 35,
-                height: 40
-            }
-            },
-            snippet: 'biggest floating island',
-            animation: 'DROP',
-            position: {
-            lat: 14.837244,
-            lng: 120.267777
-            }
-        });
-        this.businessMarkers.push(marker);
-        this.businessMarkers.push(marker1);
-      
-        marker1.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-            this.loadInflatable();
-        });
+    let marker: Marker = this.map.addMarkerSync({
+        title: 'Ionic',
+        icon: {
+        url: '../assets/icon/zoobic.png', 
+        size: {
+            width: 35,
+            height: 40
+        },
+        },
+        snippet: 'testing',
+        animation: 'DROP',
+        
+        position: {
+        lat: 14.8386,
+        lng: 120.2842
+        }
+    });
 
-    }
+    let marker1: Marker = this.map.addMarkerSync({
+        title: 'Inflatable Island',
+        icon: {
+        url: '../assets/icon/inflatable_island.png', 
+        size: {
+            width: 35,
+            height: 40
+        }
+        },
+        snippet: 'biggest floating island',
+        animation: 'DROP',
+        position: {
+        lat: 14.837244,
+        lng: 120.267777
+        }
+    });
+    this.businessMarkers.push(marker);
+    this.businessMarkers.push(marker1);
+    
+
+    marker1.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+        this.loadInflatable();
+    });
+
+  }
+
 }
