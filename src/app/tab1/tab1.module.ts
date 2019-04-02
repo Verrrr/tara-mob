@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 import { BusinessTitlePage } from './components/business-title/business-title.page';
+import { ChallengePage } from './components/challenge/challenge.page';
+import { RewardsPage } from './components/rewards/rewards.page';
 
 @NgModule({
   imports: [
@@ -13,7 +15,7 @@ import { BusinessTitlePage } from './components/business-title/business-title.pa
     FormsModule,
     RouterModule.forChild([{ path: '', component: Tab1Page }])
   ],
-  declarations: [Tab1Page, BusinessTitlePage],
-  entryComponents: [BusinessTitlePage]
+  declarations: [Tab1Page, BusinessTitlePage, ChallengePage, RewardsPage],
+  entryComponents: [BusinessTitlePage, ChallengePage, RewardsPage]
 })
 export class Tab1PageModule {}

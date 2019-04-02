@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" (click)="modalController.dismiss()" ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Instruction</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-thumbnail>
+        <img src="assets/icon/selfie.png">
+      </ion-thumbnail> -->
+      <!-- <ion-img [src]="'assets/icon/selfie.png'"></ion-img> -->
+      <img src="assets/icon/selfie.png">
+      <ion-card-title>Selfie Badge</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Use the '#InflatableIsland' on your post <br>
+      Privacy of your post must be public <br>
+      The background should be the floating island <br>
+    </ion-card-content>
+  </ion-card>
+  <ion-content padding>
+    <ion-button style="float: right">Accept</ion-button>
+  </ion-content>
+</ion-content>

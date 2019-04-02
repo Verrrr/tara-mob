@@ -1,11 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start" *ngIf="isInflatable">
-      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-back-button defaultHref=""  (click)="loadBusiness()"></ion-back-button>
     </ion-buttons>
     <ion-title>
       {{ title }}
     </ion-title>
+    <ion-buttons slot="end" *ngIf="isInflatable">
+      <ion-icon slot="icon-only" name="medal" (click)="presentReward()"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

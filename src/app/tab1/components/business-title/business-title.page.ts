@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { ChallengePage } from '../challenge/challenge.page';
 
 @Component({
   selector: 'app-business-title',
@@ -13,4 +14,10 @@ export class BusinessTitlePage implements OnInit {
   ngOnInit() {
   }
 
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ChallengePage
+    });
+    return await modal.present();
+  }
 }
