@@ -66,7 +66,6 @@ export class Tab1Page implements OnInit{
     }
 
     loadMap() {
-
         let mapOptions: GoogleMapOptions = {
         camera: this.defaultCamera,
         styles: [
@@ -293,7 +292,7 @@ export class Tab1Page implements OnInit{
       });
 
       this.inflatableOverlay = this.map.addGroundOverlaySync({
-        'url': "../assets/maps/inflatable.png",
+        'url': "assets/maps/inflatable.png",
         'bounds': bounds,
         'opacity': 1,
         bearing: -130
@@ -301,7 +300,7 @@ export class Tab1Page implements OnInit{
 
         let hidden1: Marker = this.map.addMarkerSync({
             icon: {
-            url: '../assets/icon/blank.png', 
+            url: 'assets/icon/blank.png', 
             size: {
                 width: 35,
                 height: 40
@@ -316,7 +315,7 @@ export class Tab1Page implements OnInit{
 
         let hidden2: Marker = this.map.addMarkerSync({
             icon: {
-            url: '../assets/icon/blank.png', 
+            url: 'assets/icon/blank.png', 
             size: {
                 width: 35,
                 height: 40
@@ -331,7 +330,7 @@ export class Tab1Page implements OnInit{
 
         let hidden3: Marker = this.map.addMarkerSync({
             icon: {
-            url: '../assets/icon/blank.png', 
+            url: 'assets/icon/blank.png', 
             size: {
                 width: 35,
                 height: 40
@@ -346,10 +345,10 @@ export class Tab1Page implements OnInit{
 
         let hidden4: Marker = this.map.addMarkerSync({
             icon: {
-            url: '../assets/icon/blank.png', 
+            url: 'assets/icon/adventure.png', 
             size: {
-                width: 35,
-                height: 40
+                width: 40,
+                height: 35
             }
             },
             animation: 'DROP',
@@ -370,7 +369,7 @@ export class Tab1Page implements OnInit{
   
   }
 
-  loadBusiness(){
+  async loadBusiness(){
     this.title = "Tara G!";
     this.isInflatable = false;
     if(!!this.inflatableOverlay) this.inflatableOverlay.remove();
@@ -381,28 +380,11 @@ export class Tab1Page implements OnInit{
     this.map.setCameraZoom(this.defaultCamera.zoom);
     this.map.setCameraTilt(this.defaultCamera.tilt);
   
-    let marker: Marker = this.map.addMarkerSync({
-        title: 'Ionic',
-        icon: {
-        url: '../assets/icon/zoobic.png', 
-        size: {
-            width: 35,
-            height: 40
-        },
-        },
-        snippet: 'testing',
-        animation: 'DROP',
-        
-        position: {
-        lat: 14.8386,
-        lng: 120.2842
-        }
-    });
 
     let marker1: Marker = this.map.addMarkerSync({
         title: 'Inflatable Island',
         icon: {
-        url: '../assets/icon/inflatable_island.png', 
+        url: 'assets/icon/inflatable_island.png', 
         size: {
             width: 35,
             height: 40
@@ -415,9 +397,28 @@ export class Tab1Page implements OnInit{
         lng: 120.267777
         }
     });
-    this.businessMarkers.push(marker);
     this.businessMarkers.push(marker1);
     
+    let raw = await fetch('assets/mapdata.json');
+    let data = await raw.json();
+
+    data.forEach(d => {
+        let mark: Marker = this.map.addMarkerSync({
+            title: d.title,
+            icon: {
+            url: d.image, 
+            size: {
+                width: 35,
+                height: 40
+            }
+            },
+            animation: 'DROP',
+            position: {
+            lat: d.lat,
+            lng: d.lng
+            }
+        });
+    });
 
     marker1.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
         this.loadInflatable();

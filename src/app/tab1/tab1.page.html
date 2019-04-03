@@ -3,6 +3,12 @@
     <ion-buttons slot="start" *ngIf="isInflatable">
       <ion-back-button defaultHref=""  (click)="loadBusiness()"></ion-back-button>
     </ion-buttons>
+    <ion-thumbnail slot="start" *ngIf="!isInflatable" >
+      <img src="assets/icon/logo.png" alt="">
+    </ion-thumbnail>
+    <ion-thumbnail slot="start" *ngIf="isInflatable" >
+      <img src="assets/logo/inflatable_island.png" alt="">
+    </ion-thumbnail>
     <ion-title>
       {{ title }}
     </ion-title>

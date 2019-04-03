@@ -1,0 +1,38 @@
+[
+    {
+        "image": "assets/pins/4.png",
+        "lat": 14.8505639,
+        "lng": 120.2572059,
+        "title": "iCove"
+    },
+    {
+        "image": "assets/pins/2.png",
+        "lat": 14.8507376,
+        "lng": 120.2574151,
+        "title": "Elmolina"
+    },
+    {
+        "image": "assets/pins/3.png",
+        "lat": 14.8507146,
+        "lng": 120.2598456,
+        "title": "Grand Seas"
+    },
+    {
+        "image": "assets/pins/6.png",
+        "lat": 14.8493661,
+        "lng": 120.2488187,
+        "title": "Johan's Beach"
+    },
+    {
+        "image": "assets/pins/7.png",
+        "lat": 14.8601753,
+        "lng": 120.2556422,
+        "title": "Krrels Resort"
+    },
+    {
+        "image": "assets/pins/9.png",
+        "lat": 14.8502734,
+        "lng": 120.2614116,
+        "title": "Papagayo Resort"
+    }
+]
