@@ -10,8 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { GoogleMaps } from '@ionic-native/google-maps/ngx';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+
+//Apis
+import { GoogleMaps } from '@ionic-native/google-maps/ngx';
+import { Facebook } from "@ionic-native/facebook/ngx";
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +35,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true
-    }
+    },
+    Facebook
   ],
   bootstrap: [AppComponent]
 })
