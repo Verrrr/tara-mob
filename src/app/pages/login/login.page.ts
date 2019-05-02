@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { NgForm } from '@angular/forms';
 import { LoadingController, NavController } from '@ionic/angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
+import { fbind } from 'q';
 
 @Component({
   selector: 'app-login',
@@ -18,27 +19,56 @@ export class LoginPage implements OnInit {
     private fb: Facebook
   ) { }
 
-  ngOnInit() {
-    // this.fb.login(['public_profile', 'user_friends', 'email'])
+  async ngOnInit() {
+    // this.fb.login(['public_profile', 'email'])
     // .then((res: FacebookLoginResponse) => {
     //   localStorage.setItem('fb', JSON.stringify(res));
     //   console.log(res);
     // })
     // .catch(e => console.log('Error logging into Facebook', e));
+    // this.fb.getLoginStatus().then(res => {
+    //   localStorage.setItem('fbToken', res["authResponse"]['accessToken']);
+    // });
 
-    this.fb.getLoginStatus().then(res => {
-      console.log(res);
-    });
+    let token = localStorage.getItem('fbToken');
 
-    this.fb.showDialog({
-      method: "share",
-      href: "http://ver.gordoncollegeccs-ssite.net/ccsid/",
-      caption: "Testing testing testing dont like",
-      description: "No description",
-      media: 'https://i.stack.imgur.com/zwVtb.png',
-      picture: 'https://i.stack.imgur.com/zwVtb.png',
-      hashtag: '#high'
-    })
+    // this.fb.showDialog({
+    //   method: "share",
+    //   href: "http://ver.gordoncollegeccs-ssite.net/ccsid/",
+    //   caption: "Testing testing testing dont like",
+    //   description: "No description",
+    //   picture: 'https://i.stack.imgur.com/zwVtb.png',
+    //   hashtag: '#high'
+    // })
+
+    try {
+      
+      let data = await this.fb.showDialog({
+        method: "share",
+        href: 'http://ver.gordoncollegeccs-ssite.net/testing.html',
+        picture:'https://www.google.co.jp/logos/doodles/2014/doodle-4-google-2014-japan-winner-5109465267306496.2-hp.png',
+        name:'Test Post',
+        message:'First photo post',
+        caption: 'Testing using phonegap plugin',
+        description: 'Posting photo using phonegap facebook plugin',
+        redirect_uri: 'https://facebook.com/me',
+        fields: 'id'
+      });
+  
+      console.log(data);
+    } catch (error) { 
+      console.error(error);
+    }
+    
+
+    // try {
+    //   let data = await this.fb.api(`/me/share?href=https://developers.facebook.com/docs/&access_token=${token}&method=post`, [
+        
+    //   ] );
+    //   console.log(data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
 
   }
 
