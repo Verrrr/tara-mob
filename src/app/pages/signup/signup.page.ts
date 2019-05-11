@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { defineCustomElements } from 'gl-ionic-background-video/dist/loader';
+
+defineCustomElements(window);
 
 @Component({
   selector: 'app-signup',

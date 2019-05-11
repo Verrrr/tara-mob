@@ -1,9 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>signup</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
+<ion-content force-overscroll="false">
+    <gl-background-video src="assets/background-video/bg-white.mp4" poster="assets/background-video/bg.PNG"></gl-background-video>
+  <div class="page-centered-element">
+    <div class="content">
+      <h1>Sign Up</h1>
+      <!-- <ion-item>
+        <ion-avatar slot="start">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+        <ion-label>CHANGE PHOTO</ion-label>
+      </ion-item> -->
+      <form #loginForm="ngForm" id="loginForm" (ngSubmit)="login(loginForm)">
+        <ion-item>
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-input placeholder="firstname" name="firstname" ngModel type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-input placeholder="lastname" name="lastname" ngModel type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <ion-input placeholder="email" name="email" ngModel type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="key" slot="start"></ion-icon>
+          <ion-input placeholder="password" name="password" ngModel type="password"></ion-input>
+        </ion-item>
+        <br>
+        <ion-button class="login-btn" type="submit" >SIGN UP</ion-button>
+        <br>
+        <p>Already have an account? <a routerLink="/landing">Log in</a></p>
+      </form>
+    </div>
+  </div>
 </ion-content>

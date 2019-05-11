@@ -3,7 +3,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { NgForm } from '@angular/forms';
 import { LoadingController, NavController } from '@ionic/angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
-import { fbind } from 'q';
 
 @Component({
   selector: 'app-login',
@@ -26,9 +25,9 @@ export class LoginPage implements OnInit {
     //   console.log(res);
     // })
     // .catch(e => console.log('Error logging into Facebook', e));
-    // this.fb.getLoginStatus().then(res => {
-    //   localStorage.setItem('fbToken', res["authResponse"]['accessToken']);
-    // });
+    this.fb.getLoginStatus().then(res => {
+      localStorage.setItem('fbToken', res["authResponse"]['accessToken']);
+    });
 
     let token = localStorage.getItem('fbToken');
 
@@ -45,20 +44,28 @@ export class LoginPage implements OnInit {
       
       let data = await this.fb.showDialog({
         method: "share",
-        href: 'http://ver.gordoncollegeccs-ssite.net/testing.html',
-        picture:'https://www.google.co.jp/logos/doodles/2014/doodle-4-google-2014-japan-winner-5109465267306496.2-hp.png',
-        name:'Test Post',
-        message:'First photo post',
-        caption: 'Testing using phonegap plugin',
-        description: 'Posting photo using phonegap facebook plugin',
-        redirect_uri: 'https://facebook.com/me',
-        fields: 'id'
+        href: 'https://www.facebook.com/GordonCollegeTaraG/',
+        description: 'Test',
+        hashtags: ['#tara_g', '#publicdemo']
       });
   
       console.log(data);
+
+
     } catch (error) { 
       console.error(error);
     }
+
+
+    // try {
+      
+    //   let data = await this.fb.api(`/me/feed?access_token=${token}&fields=id,application,attachments,caption,link,message,object_id,privacy`,['user_posts']);
+    //   console.log(data);
+
+    // } catch (error) {
+    //   console.error(error);
+    // }
+
     
 
     // try {

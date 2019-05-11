@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { defineCustomElements } from 'gl-ionic-background-video/dist/loader';
 import { NavController } from '@ionic/angular';
 
-defineCustomElements(window); // call the function here
+defineCustomElements(window);
 
 @Component({
   selector: 'app-landing',
@@ -11,9 +11,12 @@ defineCustomElements(window); // call the function here
 })
 export class LandingPage implements OnInit {
 
+  loginState: boolean;
+
   constructor(private navController: NavController) { }
 
   ngOnInit() {
+    this.loginState = false;
   }
 
   gotoLogin(){

@@ -1,12 +1,27 @@
-<ion-content force-overscroll="false">
+<ion-content force-overscroll="false" (click)="gotoLogin()">
     <gl-background-video src="assets/background-video/bg-white.mp4" poster="assets/background-video/bg.PNG"></gl-background-video>
   <div class="page-centered-element">
     <div class="content">
-      <img src="assets/icon/logo.png" style="width: 50%; height: 50%">
-      <h5>Gamifying Travel Experience</h5>
-      <div class="buttons-container">
+      <img src="assets/icon/logo.png" [ngClass]="{'move-up': loginState}" id="logo">
+      <!-- <h5>Gamifying Travel Experience</h5> -->
+      <!-- <div class="buttons-container">
         <ion-button (click)="gotoLogin()" >Login</ion-button>
-      </div>
+      </div> -->
+
+      <form #loginForm="ngForm" id="loginForm" [ngClass]="{'fade-in': loginState}"  (ngSubmit)="login(loginForm)">
+        <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <ion-input [disabled]="!loginState" placeholder="email" name="email" ngModel type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="key" slot="start"></ion-icon>
+          <ion-input [disabled]="!loginState" placeholder="password" name="password" ngModel type="password"></ion-input>
+        </ion-item>
+        <br>
+        <ion-button class="login-btn" [disabled]="!loginState" type="submit" >LOGIN</ion-button>
+        <br>
+        <p>Don't have an account? <a *ngIf="loginState" routerLink="/signup">Sign up</a></p>
+      </form>
     </div>
   </div>
 </ion-content>

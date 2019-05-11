@@ -8,11 +8,49 @@
     align-items: center;
     justify-content: center;
   }
+
+  ion-item{ 
+    --background: rgba(255, 255, 255, 0.4);;
+    margin-bottom: 10px;
+    --border-color: #2e230d;
+    --border-width: 1px;
+    --border-radius: 50px;
+    --highlight-height: 0px;
+  }
+  
+  ion-button{
+    --background:#2e230d;
+    --border-radius  : 50px;
+
+    width: 50%;
+  }
   
   .content {
     text-align: center;
-  
+    padding: 10px;
     .buttons-container {
       margin-top: 30px;
     }
+  }
+
+  #loginForm{
+    transition: opacity 5s;
+    opacity: 0;
+  }
+
+
+  #logo{
+    position: relative;
+    width: 50%;
+    height: 50%;
+    top: 100px;
+  }
+
+  .fade-in{
+    opacity: 1 !important;
+  }
+
+  .move-up{
+    transition: all 1s ease-in-out;
+    transform: translate(0px,-135px);
   }
