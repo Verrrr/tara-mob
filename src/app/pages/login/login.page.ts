@@ -89,7 +89,7 @@ export class LoginPage implements OnInit {
      
       let loginResponse = await this.authService.login(credentials.value).toPromise();
       localStorage.setItem('token', loginResponse['token']);
-      localStorage.setItem('user','1');
+      // localStorage.setItem('user','1');
       loading.dismiss();
       this.navController.navigateForward('/tabs/tab1');
 

@@ -14,17 +14,18 @@
         <img src="assets/icon/selfie.png">
       </ion-thumbnail> -->
       <!-- <ion-img [src]="'assets/icon/selfie.png'"></ion-img> -->
-      <img src="assets/icon/selfie.png">
-      <ion-card-title>Selfie Badge</ion-card-title>
+      <img src="assets/icon/facebook.png">
+      <ion-card-title>Facebook Badge</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
+      Share the facebook page of inflatable <br>
       Use the '#InflatableIsland' on your post <br>
       Privacy of your post must be public <br>
-      The background should be the floating island <br>
+      <!-- The background should be the floating island <br> -->
     </ion-card-content>
   </ion-card>
   <ion-content padding>
-    <ion-button style="float: right">Accept</ion-button>
+    <ion-button style="float: right" (click)="share()">Accept</ion-button>
   </ion-content>
 </ion-content>

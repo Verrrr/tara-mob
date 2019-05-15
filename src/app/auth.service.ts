@@ -12,7 +12,7 @@ export class AuthService {
     ) { }
 
   canActivate():boolean{
-    if (!!localStorage.getItem('user')) {
+    if (!!localStorage.getItem('token')) {
       return true;
     } else {
       this.navController.navigateBack('/landing');

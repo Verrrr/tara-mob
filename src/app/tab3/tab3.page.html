@@ -1,25 +1,25 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Weekly Leaderboard
+      Leaderboard
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item>
+  <ion-list *ngIf="users">
+    <ion-item *ngFor="let u of users">
       <ion-avatar slot="start">
-        <img src="assets/icon/avatar.png">
+        <img [src]="u.picture">
       </ion-avatar>
       <ion-label>
-        Kenneth Bautista (110)
+        {{ u.name }}
       </ion-label>
-      <ion-thumbnail slot="end">
+      <!-- <ion-thumbnail slot="end">
         <img src="assets/medal/gold.png">
-      </ion-thumbnail>
+      </ion-thumbnail> -->
     </ion-item>
-    <ion-item>
+    <!-- <ion-item>
       <ion-avatar slot="start">
         <img src="assets/icon/avatar.png">
       </ion-avatar>
@@ -62,6 +62,6 @@
       <ion-thumbnail slot="end">
         <img src="assets/medal/blank.png">
       </ion-thumbnail>
-    </ion-item>
+    </ion-item> -->
   </ion-list>
 </ion-content>

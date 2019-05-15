@@ -9,7 +9,7 @@
         </ion-avatar>
         <ion-label>CHANGE PHOTO</ion-label>
       </ion-item> -->
-      <form #loginForm="ngForm" id="loginForm" (ngSubmit)="login(loginForm)">
+      <form #signupForm="ngForm" id="loginForm" (ngSubmit)="signup(signupForm)">
         <ion-item>
           <ion-icon name="person" slot="start"></ion-icon>
           <ion-input placeholder="firstname" name="firstname" ngModel type="text"></ion-input>
@@ -23,7 +23,7 @@
           <ion-input placeholder="email" name="email" ngModel type="email"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-icon name="key" slot="start"></ion-icon>
+          <ion-icon name="key" slot="start"></ion-icon>
           <ion-input placeholder="password" name="password" ngModel type="password"></ion-input>
         </ion-item>
         <br>

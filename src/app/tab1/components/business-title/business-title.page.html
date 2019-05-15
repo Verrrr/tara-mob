@@ -29,12 +29,11 @@
     </ion-item>
   </ion-list> -->
 
-  <ion-card>
-    <ion-item>
+  <!--<ion-card>
+     <ion-item>
       <ion-avatar slot="start">
         <img src="assets/icon/adventure.png">
       </ion-avatar>
-      <!-- <ion-icon name="pin" slot="start"></ion-icon> -->
       <ion-label>Explorer Badge (1/4)</ion-label>
       <ion-button fill="outline" slot="end">View</ion-button>
     </ion-item>
@@ -49,7 +48,6 @@
       <ion-avatar slot="start">
         <img src="assets/icon/selfie.png">
       </ion-avatar>
-      <!-- <ion-icon name="pin" slot="start"></ion-icon> -->
       <ion-label>Selfie Badge</ion-label>
       <ion-button fill="outline" slot="end" (click)="presentModal()">View</ion-button>
     </ion-item>
@@ -57,29 +55,27 @@
     <ion-card-content>
       Take a selfie and post it on facebook
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
   <ion-card>
     <ion-item>
       <ion-avatar slot="start">
         <img src="assets/icon/facebook.png">
       </ion-avatar>
-      <!-- <ion-icon name="pin" slot="start"></ion-icon> -->
       <ion-label>Facebook Badge</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
+      <ion-button fill="outline" slot="end" (click)="presentModal()">View</ion-button>
     </ion-item>
 
     <ion-card-content>
-      Share a photo on your facebook
+      Share our facebook page
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <!-- <ion-card>
     <ion-item>
       <ion-avatar slot="start">
         <img src="assets/icon/twitter.png">
       </ion-avatar>
-      <!-- <ion-icon name="pin" slot="start"></ion-icon> -->
       <ion-label>Twitter Badge</ion-label>
       <ion-button fill="outline" slot="end">View</ion-button>
     </ion-item>
@@ -94,7 +90,6 @@
       <ion-avatar slot="start">
         <img src="assets/icon/instagram.png">
       </ion-avatar>
-      <!-- <ion-icon name="pin" slot="start"></ion-icon> -->
       <ion-label>Twitter Badge</ion-label>
       <ion-button fill="outline" slot="end">View</ion-button>
     </ion-item>
@@ -102,6 +97,6 @@
     <ion-card-content>
       Post a photo in instagram
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
 </ion-content>

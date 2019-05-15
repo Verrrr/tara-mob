@@ -298,69 +298,69 @@ export class Tab1Page implements OnInit{
         bearing: -130
       });
 
-        let hidden1: Marker = this.map.addMarkerSync({
-            icon: {
-            url: 'assets/icon/blank.png', 
-            size: {
-                width: 35,
-                height: 40
-            }
-            },
-            animation: 'DROP',
-            position: {
-            lat: 14.837286,
-            lng: 120.267638
-            }
-        });
+        // let hidden1: Marker = this.map.addMarkerSync({
+        //     icon: {
+        //     url: 'assets/icon/blank.png', 
+        //     size: {
+        //         width: 35,
+        //         height: 40
+        //     }
+        //     },
+        //     animation: 'DROP',
+        //     position: {
+        //     lat: 14.837286,
+        //     lng: 120.267638
+        //     }
+        // });
 
-        let hidden2: Marker = this.map.addMarkerSync({
-            icon: {
-            url: 'assets/icon/blank.png', 
-            size: {
-                width: 35,
-                height: 40
-            }
-            },
-            animation: 'DROP',
-            position: {
-            lat: 14.837658,
-            lng: 120.267612
-            }
-        });
+        // let hidden2: Marker = this.map.addMarkerSync({
+        //     icon: {
+        //     url: 'assets/icon/blank.png', 
+        //     size: {
+        //         width: 35,
+        //         height: 40
+        //     }
+        //     },
+        //     animation: 'DROP',
+        //     position: {
+        //     lat: 14.837658,
+        //     lng: 120.267612
+        //     }
+        // });
 
-        let hidden3: Marker = this.map.addMarkerSync({
-            icon: {
-            url: 'assets/icon/blank.png', 
-            size: {
-                width: 35,
-                height: 40
-            }
-            },
-            animation: 'DROP',
-            position: {
-            lat: 14.837124,
-            lng: 120.268083
-            }
-        });
+        // let hidden3: Marker = this.map.addMarkerSync({
+        //     icon: {
+        //     url: 'assets/icon/blank.png', 
+        //     size: {
+        //         width: 35,
+        //         height: 40
+        //     }
+        //     },
+        //     animation: 'DROP',
+        //     position: {
+        //     lat: 14.837124,
+        //     lng: 120.268083
+        //     }
+        // });
 
-        let hidden4: Marker = this.map.addMarkerSync({
-            icon: {
-            url: 'assets/icon/adventure.png', 
-            size: {
-                width: 40,
-                height: 35
-            }
-            },
-            animation: 'DROP',
-            position: {
-            lat: 14.837263,
-            lng: 120.267825
-            }
-        });
-    this.businessMarkers.push(hidden1);
-    this.businessMarkers.push(hidden2);
-    this.businessMarkers.push(hidden3);
-    this.businessMarkers.push(hidden4);
+        // let hidden4: Marker = this.map.addMarkerSync({
+        //     icon: {
+        //     url: 'assets/icon/adventure.png', 
+        //     size: {
+        //         width: 40,
+        //         height: 35
+        //     }
+        //     },
+        //     animation: 'DROP',
+        //     position: {
+        //     lat: 14.837263,
+        //     lng: 120.267825
+        //     }
+        // });
+    // this.businessMarkers.push(hidden1);
+    // this.businessMarkers.push(hidden2);
+    // this.businessMarkers.push(hidden3);
+    // this.businessMarkers.push(hidden4);
       
     this.title = "Inflatable Island";
     this.isInflatable = true;
@@ -402,23 +402,23 @@ export class Tab1Page implements OnInit{
     let raw = await fetch('assets/mapdata.json');
     let data = await raw.json();
 
-    data.forEach(d => {
-        let mark: Marker = this.map.addMarkerSync({
-            title: d.title,
-            icon: {
-            url: d.image, 
-            size: {
-                width: 35,
-                height: 40
-            }
-            },
-            animation: 'DROP',
-            position: {
-            lat: d.lat,
-            lng: d.lng
-            }
-        });
-    });
+    // data.forEach(d => {
+    //     let mark: Marker = this.map.addMarkerSync({
+    //         title: d.title,
+    //         icon: {
+    //         url: d.image, 
+    //         size: {
+    //             width: 35,
+    //             height: 40
+    //         }
+    //         },
+    //         animation: 'DROP',
+    //         position: {
+    //         lat: d.lat,
+    //         lng: d.lng
+    //         }
+    //     });
+    // });
 
     marker1.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
         this.loadInflatable();
