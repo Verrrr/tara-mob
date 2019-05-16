@@ -1,1 +1,13 @@
-
+.tab-item{
+    background:radial-gradient(farthest-corner at -20px -20px, #db8649 26%, #bd7a4adc 62%); 
+    padding: 5px 15px; 
+    border-radius: 7px;
+    margin: 5px;
+}
+.tab-item > ion-icon{
+    font-size: xx-large;
+    color: #ffff
+}
+ion-tab-button,ion-tab-bar{
+    background-color:#a1e0e8;
+}
