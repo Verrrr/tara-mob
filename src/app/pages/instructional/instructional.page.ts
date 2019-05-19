@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-instructional',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstructionalPage implements OnInit {
 
-  constructor() { }
+  showPage = 1;
+
+  constructor(public navController: NavController) { }
 
   ngOnInit() {
   }

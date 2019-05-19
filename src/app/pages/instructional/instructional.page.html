@@ -1,9 +1,40 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>instructional</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content text-center>
 
-<ion-content>
-
+    <div class="center page" *ngIf="showPage==1">
+      <img src="assets/instructional/visit-location.png">
+      <ion-label> Visit Different Places</ion-label>
+      <p>Select specific destination and take challenge in that area</p>
+      <br>
+      <ion-icon (click)="showPage=1" name="radio-button-on"></ion-icon>
+      <ion-icon (click)="showPage=2" name="radio-button-off"></ion-icon>
+      <ion-icon (click)="showPage=3" name="radio-button-off"></ion-icon>
+      <br>
+      <br>
+      <ion-button (click)="showPage=2" >NEXT</ion-button>
+    </div>
+    <div class="center" *ngIf="showPage==2">
+      <img src="assets/instructional/collect-badges.png">
+      <ion-label>Collect Badges</ion-label>
+      <p>Collect all the badges by going to that particular area or by finishing challenges.</p>
+      <br>
+      <ion-icon (click)="showPage=1" name="radio-button-off"></ion-icon>
+      <ion-icon (click)="showPage=2" name="radio-button-on"></ion-icon>
+      <ion-icon (click)="showPage=3" name="radio-button-off"></ion-icon>
+      <br>
+      <br>
+      <ion-button (click)="showPage=3">NEXT</ion-button>
+    </div>
+    <div class="center" *ngIf="showPage==3">
+      <img src="assets/instructional/rewards.png">
+      <ion-label>Earn Perks and Reward</ion-label>
+      <p>You can earn perks and rewards if you successfully collect badges and finish challenges.</p>
+      <br>
+      <ion-icon (click)="showPage=1" name="radio-button-off"></ion-icon>
+      <ion-icon (click)="showPage=2" name="radio-button-off"></ion-icon>
+      <ion-icon  name="radio-button-on"></ion-icon>
+      <br>
+      <br>
+      <ion-button (click)="navController.navigateForward('/landing')">GET STARTED</ion-button>
+    </div>
+ 
 </ion-content>

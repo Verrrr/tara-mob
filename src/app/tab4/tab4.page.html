@@ -1,46 +1,92 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Profile</ion-title>
+    <ion-title style="color:#bd7a4adc;">Player Profile</ion-title>
     <ion-buttons slot="end">
       <ion-icon slot="icon-only" name="power" (click)="logout()"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <div style="text-align: center">
-      <img src="assets/icon/avatar.png" width="200" height="200" alt="">
-      <h3>Dela Cruz, Juan</h3>
+<ion-content>
+  <div style="text-align: center" class="profile-body">
+    <br>
+    <br>  
+    <ion-avatar style="margin:auto; ">
+        <img src="https://img.icons8.com/bubbles/2x/administrator-male.png">
+    </ion-avatar>
+      <h4 text-center style="color:#666666; font-family: 'bubbleboddy';">Juan Dela Cruz</h4>
+      <p style="margin:0%;color:#666666;">juandc@gmail.com</p>
   </div>
-  <h5>Badges Collected</h5>
-  <ion-grid>
-    <ion-row>
-      <ion-col style="margin-top: auto">
-        <img src="assets/icon/adventure.png" alt="">
-      </ion-col>
-      <ion-col style="margin-top: auto">
-        <img src="assets/icon/facebook.png" alt="">
-      </ion-col>
-      <ion-col style="margin-top: auto">
-        <img src="assets/icon/forest.png" alt="">
-      </ion-col>
-      <ion-col style="margin-top: auto">
-        <img src="assets/icon/outdoor.png" alt="">
-      </ion-col>
-      <ion-col style="margin-top: auto">
-        <img src="assets/icon/selfie.png" alt="">
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <h5>Visited places</h5>
-  <ion-grid>
-    <ion-row>
-      <ion-col size=3 >
-        <img src="assets/icon/inflatable_island.png" alt="">
-      </ion-col>
-      <ion-col size=3>
-        <img src="assets/pins/3.png" alt="">
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+   <ion-toolbar>
+      <ion-segment scrollable color="main"  (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="list" checked>
+          <ion-label>Achievements</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="bookings" >
+          <ion-label>Visited Place</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+
+    <div  [class.showbadge]="showbadge">
+        <ion-card  >
+          <ion-card-header>
+            <ion-card-title>Collected Badges</ion-card-title>
+          </ion-card-header>
+         
+          <ion-card-content text-center style="padding: 0;">
+              <ion-grid>
+                  <ion-row >
+                    <!-- <ion-col size="4" class="badges">
+                      <img src="assets/icon/adventure.png" alt="">
+                      <p>Take adventure</p>
+                    </ion-col> -->
+                    <ion-col size="4"  class="badges" >
+                      <img src="assets/icon/facebook.png" alt="">
+                      <p>Facebook Badge</p>
+                    </ion-col>
+                    <!-- <ion-col size="4"  class="badges" >
+                      <img src="assets/icon/forest.png" alt="">
+                      <p>Forest adventure</p>
+                    </ion-col>
+                    <ion-col size="4"  class="badges">
+                      <img src="assets/icon/outdoor.png" alt="">
+                      <p>Hiking</p>
+                    </ion-col>-->
+                    <ion-col size="4"  class="badges">
+                      <img src="assets/icon/selfie.png" alt="">
+                      <p>Selfie Badge</p>
+                    </ion-col> 
+                  </ion-row>
+                </ion-grid>
+            
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card  >
+            <ion-card-header>
+              <ion-card-title>Successful Challenge</ion-card-title>
+            </ion-card-header>
+           
+            <ion-card-content text-center style="padding: 0;">
+                
+              
+            </ion-card-content>
+          </ion-card>
+    </div>
+    
+    <div  [class.showplace]="showplace">
+        
+        <ion-card  >
+            <ion-card-header>
+              <ion-card-title>Visited Places</ion-card-title>
+            </ion-card-header>
+           
+            <ion-card-content text-center style="padding: 0;">
+                
+              
+            </ion-card-content>
+          </ion-card>
+    </div>
+
 </ion-content>

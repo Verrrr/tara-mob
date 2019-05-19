@@ -11,7 +11,7 @@ import {
   GroundOverlay,
   ILatLng
 } from '@ionic-native/google-maps/ngx';
-import { Platform, ModalController } from '@ionic/angular';
+import { Platform, ModalController, NavController } from '@ionic/angular';
 import { BusinessTitlePage } from './components/business-title/business-title.page';
 import { RewardsPage } from './components/rewards/rewards.page';
 
@@ -38,11 +38,13 @@ export class Tab1Page implements OnInit{
   constructor(
     private platform: Platform,
     private modalController: ModalController,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    private navController: NavController
     ) { 
       this.businessMarkers = new Array();
       this.title = "Tara G!"
       this.isInflatable = false;
+      this.presentModal();
     }
 
     async ngOnInit(){

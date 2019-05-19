@@ -1,8 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="" (click)="modalController.dismiss()" ></ion-back-button>
+      <ion-back-button style="color:black;" defaultHref="" (click)="modalController.dismiss()" ></ion-back-button>
     </ion-buttons>
+    <ion-avatar slot="start">
+      <ion-img src="assets\logo\inflatable_island.png"></ion-img>
+    </ion-avatar>
     <ion-title>Inflatable Island Challenges</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -58,16 +61,21 @@
   </ion-card> -->
 
   <ion-card>
-    <ion-item>
-      <ion-avatar slot="start">
+    <ion-item text-center>
+      <ion-avatar>
         <img src="assets/icon/facebook.png">
       </ion-avatar>
-      <ion-label>Facebook Badge</ion-label>
-      <ion-button fill="outline" slot="end" (click)="presentModal()">View</ion-button>
+      <ion-label class="title">Facebook Badge</ion-label>
     </ion-item>
-
-    <ion-card-content>
-      Share our facebook page
+    
+    <ion-card-content class="details">
+      Share the facebook page of inflatable <br>
+      Use the '#InflatableIsland' on your post <br>
+      Privacy of your post must be public <br>
+      <div text-center>
+        <ion-button (click)="presentModal()">Accept</ion-button>
+        <ion-button (click)="presentModal()">View Rewards</ion-button>
+      </div>
     </ion-card-content>
   </ion-card>
 

@@ -1,0 +1,36 @@
+// @import '../theme/fonts';
+
+  
+  ion-toolbar{
+    --background: #a1e0e8;
+  }
+  
+  ion-title{
+    font-family: 'videopheak';
+    font-weight: bolder;
+  }
+.profile-body{
+    background-image: url('/assets/images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    height: 40%;
+}
+.showbadge{
+    display: none !important;
+}
+.showplace{
+    display: none !important;
+}
+
+ion-card-title{
+    font-family: 'bubbleboddy';
+    --color: #e26040;
+}
+.badges{
+    margin-top:5px ;
+    border:1px solid #b59a7c;
+    border-radius: 10px;
+    height: auto;
+}

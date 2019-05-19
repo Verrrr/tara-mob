@@ -1,8 +1,47 @@
-ion-content{
-    background-color: #a1e0e8 !important ;
-}
+// @import '../theme/fonts';
 
-ion-toolbar,ion-content {
+
+ion-toolbar{
     --background: #a1e0e8;
 }
 
+ion-title{
+    font-family: 'videopheak';
+    font-weight: bolder;
+}
+ion-item{
+    --border-radius: 10px;
+    margin: 5px;
+    --background: #29bda3;
+}
+
+.top3{
+    --background: #ef492e;
+}
+.top2{
+    --background: #ff842f;
+}
+.top1{
+    --background: #fbbc29;
+}
+ion-note{
+    font-family: 'digits';
+    font-weight: bolder;
+    font-size: 30px;
+    margin: 5px;
+    padding: 0px;
+    
+}
+ion-item >ion-label{
+    font-family: 'Bubbleboddy';
+    font-size: 20px;
+    font-weight: 50;
+    letter-spacing: 1.5px;
+    --color: rgb(248, 244, 244);
+}
+ion-avatar{
+    border: 2px solid #fff;
+}
+ion-note{
+    --color: rgb(248, 244, 244);
+}

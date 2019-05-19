@@ -1,4 +1,15 @@
+// @import '../theme/fonts';
 .welcome-card ion-img {
   max-height: 35vh;
   overflow: hidden;
+}
+
+
+ion-toolbar,ion-content{
+  --background: #a1e0e8;
+}
+
+ion-title{
+  font-family: 'videopheak';
+  font-weight: bolder;
 }

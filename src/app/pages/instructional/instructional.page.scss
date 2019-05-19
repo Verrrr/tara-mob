@@ -1,0 +1,24 @@
+ion-content{
+  --background: #a1e0e8;
+}
+ion-label{
+  font-family: bubbleboddy;
+  font-size: 25px;
+}
+p{
+  font-family: bbl;
+  font-size: 20px;
+  padding: 0 15px;
+
+}
+.center{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+ion-button{
+  --background:#2e230d;
+  --border-radius  : 50px;
+
+  width: 50%;
+}

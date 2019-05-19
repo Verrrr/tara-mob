@@ -6,19 +6,59 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list *ngIf="users">
-    <ion-item *ngFor="let u of users">
+<ion-content padding>
+  <!-- <ion-list *ngIf="users"> -->
+
+    <!-- <ion-item *ngFor="let u of users" >
+      <ion-note  slot="start">1</ion-note>
       <ion-avatar slot="start">
         <img [src]="u.picture">
       </ion-avatar>
       <ion-label>
         {{ u.name }}
       </ion-label>
-      <!-- <ion-thumbnail slot="end">
-        <img src="assets/medal/gold.png">
-      </ion-thumbnail> -->
+
+    </ion-item> -->
+    <ion-item class="top1">
+      <ion-note slot="end">1</ion-note>
+      <ion-avatar slot="start">
+        <img src="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2371958112854453&height=50&width=50&ext=1560489984&hash=AeSJkS_pgTGu60E5">
+      </ion-avatar>
+      <ion-label>
+        Virgilio Legaspi
+      </ion-label>
     </ion-item>
+    <ion-item class="top2">
+      <ion-note slot="end">2</ion-note>
+      <ion-avatar slot="start">
+        <img src="https://scontent.fmnl17-2.fna.fbcdn.net/v/t31.0-8/14991067_1231384170262456_5109176337846069443_o.jpg?_nc_cat=105&_nc_ht=scontent.fmnl17-2.fna&oh=c2a0e66d5ac20b74f1c7c9f239d11376&oe=5D529548">
+      </ion-avatar>
+      <ion-label>
+        Kenneth V. Bautista
+      </ion-label>
+    </ion-item>
+    <ion-item class="top3">
+      <ion-note slot="end">3</ion-note>
+      <ion-avatar slot="start">
+        <img src="https://scontent.fmnl17-2.fna.fbcdn.net/v/t1.0-9/56786089_2154572597924946_69942318349680640_n.jpg?_nc_cat=103&_nc_ht=scontent.fmnl17-2.fna&oh=91fed2b3889478bba0a4e6b536309c6d&oe=5D5E2B55">
+      </ion-avatar>
+      <ion-label>
+        Alexis Alleyah Royena
+      </ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-note slot="end">4</ion-note>
+      <ion-avatar slot="start">
+        <img src="https://scontent.fmnl17-1.fna.fbcdn.net/v/t1.0-9/50521772_110738303371681_39783272745533440_n.jpg?_nc_cat=108&_nc_ht=scontent.fmnl17-1.fna&oh=444010b0ee04a426fe653962c96438f8&oe=5D5E3CDB">
+      </ion-avatar>
+      <ion-label>
+        Revstanver Royena
+      </ion-label>
+    </ion-item>
+
+
+      
+    
     <!-- <ion-item>
       <ion-avatar slot="start">
         <img src="assets/icon/avatar.png">
@@ -63,5 +103,5 @@
         <img src="assets/medal/blank.png">
       </ion-thumbnail>
     </ion-item> -->
-  </ion-list>
+  <!-- </ion-list> -->
 </ion-content>
