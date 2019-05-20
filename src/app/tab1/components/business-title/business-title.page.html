@@ -4,7 +4,7 @@
       <ion-back-button style="color:black;" defaultHref="" (click)="modalController.dismiss()" ></ion-back-button>
     </ion-buttons>
     <ion-avatar slot="start">
-      <ion-img src="assets\logo\inflatable_island.png"></ion-img>
+      <ion-img src="./assets\logo\inflatable_island.png"></ion-img>
     </ion-avatar>
     <ion-title>Inflatable Island Challenges</ion-title>
   </ion-toolbar>
@@ -60,21 +60,19 @@
     </ion-card-content>
   </ion-card> -->
 
-  <ion-card>
+  <ion-card *ngFor="let c of challenges">
     <ion-item text-center>
       <ion-avatar>
-        <img src="assets/icon/facebook.png">
+        <img src="./assets/icon/facebook.png">
       </ion-avatar>
-      <ion-label class="title">Facebook Badge</ion-label>
+      <ion-label class="title">{{ c.title }}</ion-label>
     </ion-item>
     
     <ion-card-content class="details">
-      Share the facebook page of inflatable <br>
-      Use the '#InflatableIsland' on your post <br>
-      Privacy of your post must be public <br>
+      {{ c.instruction }}
       <div text-center>
-        <ion-button (click)="presentModal()">Accept</ion-button>
-        <ion-button (click)="presentModal()">View Rewards</ion-button>
+        <ion-button (click)="presentModal(c)">Accept</ion-button>
+        <ion-button (click)="viewReward(c)">View Rewards</ion-button>
       </div>
     </ion-card-content>
   </ion-card>

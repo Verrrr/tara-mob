@@ -15,13 +15,12 @@
       </ion-thumbnail> -->
       <!-- <ion-img [src]="'assets/icon/selfie.png'"></ion-img> -->
       <img src="assets/icon/facebook.png">
-      <ion-card-title>Facebook Badge</ion-card-title>
+      <ion-card-subtitle>To get this badge follow the following instructions.</ion-card-subtitle>
+      <ion-card-title>{{ challenge.title }}</ion-card-title>
     </ion-card-header>
   
-    <ion-card-content>
-      Share the facebook page of inflatable <br>
-      Use the '#InflatableIsland' on your post <br>
-      Privacy of your post must be public <br>
+    <ion-card-content style="white-space: pre">
+      {{ challenge.instruction }}
       <!-- The background should be the floating island <br> -->
     </ion-card-content>
   </ion-card>

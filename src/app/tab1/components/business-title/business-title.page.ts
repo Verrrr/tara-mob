@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { ChallengePage } from '../challenge/challenge.page';
+import { RewardsPage } from '../rewards/rewards.page';
+import { BusinessService } from 'src/app/services/business.service';
 
 @Component({
   selector: 'app-business-title',
@@ -9,14 +11,37 @@ import { ChallengePage } from '../challenge/challenge.page';
 })
 export class BusinessTitlePage implements OnInit {
 
-  constructor(public modalController: ModalController) { }
+  challenges;
+
+  constructor(
+    public modalController: ModalController,
+    public navController: NavController,
+    private businessService: BusinessService
+    ) { }
 
   ngOnInit() {
+    this.businessService.getChallenges().subscribe(data => {
+      this.challenges = data;
+    });
   }
 
-  async presentModal() {
+  async presentModal(challenge) {
+    if(!!localStorage.getItem('token')){
+      const modal = await this.modalController.create({
+        component: ChallengePage,
+        componentProps: {
+          challenge
+        }
+      });
+      return await modal.present();
+    } else {
+      this.navController.navigateBack('/landing');
+    }
+  }
+  async viewReward(challenge) {
     const modal = await this.modalController.create({
-      component: ChallengePage
+      component: RewardsPage,
+      componentProps: {challenge}
     });
     return await modal.present();
   }

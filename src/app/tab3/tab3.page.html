@@ -19,16 +19,16 @@
       </ion-label>
 
     </ion-item> -->
-    <ion-item class="top1">
-      <ion-note slot="end">1</ion-note>
+    <ion-item [ngClass]="{'top1': i==0, 'top2': i==1, 'top3': i==2}" *ngFor="let u of users; let i = index" class="top1">
+      <ion-note slot="end">{{ i+1 }}</ion-note>
       <ion-avatar slot="start">
-        <img src="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2371958112854453&height=50&width=50&ext=1560489984&hash=AeSJkS_pgTGu60E5">
+        <img [src]="u.picture">
       </ion-avatar>
       <ion-label>
-        Virgilio Legaspi
+        {{ u.name }}
       </ion-label>
     </ion-item>
-    <ion-item class="top2">
+    <!-- <ion-item class="top2">
       <ion-note slot="end">2</ion-note>
       <ion-avatar slot="start">
         <img src="https://scontent.fmnl17-2.fna.fbcdn.net/v/t31.0-8/14991067_1231384170262456_5109176337846069443_o.jpg?_nc_cat=105&_nc_ht=scontent.fmnl17-2.fna&oh=c2a0e66d5ac20b74f1c7c9f239d11376&oe=5D529548">
@@ -54,7 +54,7 @@
       <ion-label>
         Revstanver Royena
       </ion-label>
-    </ion-item>
+    </ion-item> -->
 
 
       

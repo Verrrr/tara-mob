@@ -10,7 +10,9 @@ export class InstructionalPage implements OnInit {
 
   showPage = 1;
 
-  constructor(public navController: NavController) { }
+  constructor(public navController: NavController) {
+    localStorage.setItem('oldUser', '1');
+  }
 
   ngOnInit() {
   }

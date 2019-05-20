@@ -41,10 +41,13 @@ export class Tab1Page implements OnInit{
     private changeDetectorRef: ChangeDetectorRef,
     private navController: NavController
     ) { 
-      this.businessMarkers = new Array();
-      this.title = "Tara G!"
-      this.isInflatable = false;
-      this.presentModal();
+        if(!!!localStorage.getItem('oldUser')){
+            this.navController.navigateBack('/instructional');
+        }
+        this.businessMarkers = new Array();
+        this.title = "Tara G!"
+        this.isInflatable = false;
+        // this.presentReward();
     }
 
     async ngOnInit(){
@@ -61,6 +64,7 @@ export class Tab1Page implements OnInit{
     }
   
     async presentReward(){
+
         const modal = await this.modalController.create({
         component: RewardsPage
         });

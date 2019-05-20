@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavParams } from '@ionic/angular';
 
 @Component({
   selector: 'app-rewards',
@@ -8,7 +8,14 @@ import { ModalController } from '@ionic/angular';
 })
 export class RewardsPage implements OnInit {
 
-  constructor(public modalController: ModalController) { }
+  challenge;
+
+  constructor(
+    public modalController: ModalController,
+    private navParams: NavParams
+    ) { 
+      this.challenge = this.navParams.get('challenge');
+    }
 
   ngOnInit() {
   }

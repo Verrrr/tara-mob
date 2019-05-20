@@ -9,12 +9,15 @@
     <ion-thumbnail slot="start" *ngIf="isInflatable" >
       <img src="assets/logo/inflatable_island.png" alt="">
     </ion-thumbnail>
-    <ion-title style="color:#bd7a4adc;">
+    <ion-title style="color:#bd7a4adc;" *ngIf="!isInflatable"  >
       {{ title }}
     </ion-title>
-    <ion-buttons slot="end" *ngIf="isInflatable">
+    <ion-title class="business-title" *ngIf="isInflatable">
+      {{ title }}
+    </ion-title>
+    <!-- <ion-buttons slot="end" *ngIf="isInflatable">
       <ion-icon slot="icon-only" name="medal" (click)="presentReward()"></ion-icon>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 

@@ -14,7 +14,6 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../tab1/tab1.module#Tab1PageModule',
-            canActivate: [ AuthService ]
           }
         ]
       },
@@ -23,7 +22,8 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../tab2/tab2.module#Tab2PageModule'
+            loadChildren: '../tab2/tab2.module#Tab2PageModule',
+            canActivate: [ AuthService ]
           }
         ]
       },
@@ -32,7 +32,8 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../tab3/tab3.module#Tab3PageModule'
+            loadChildren: '../tab3/tab3.module#Tab3PageModule',
+            canActivate: [ AuthService ]
           }
         ]
       },
@@ -41,7 +42,8 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../tab4/tab4.module#Tab4PageModule'
+            loadChildren: '../tab4/tab4.module#Tab4PageModule',
+            canActivate: [ AuthService ]
           }
         ]
       },
